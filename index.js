@@ -1,5 +1,6 @@
 const {Server} = require("socket.io");
-const io = new Server(8081, {
+let PORT = process.env.PORT || 6000
+const io = new Server(PORT, {
     
 })
 
