@@ -1,8 +1,7 @@
-const {Server} = require("socket.io");
-let PORT = process.env.PORT || 6000
-const io = new Server(PORT, {
-    
-})
+const {Server}= require("socket.io")
+
+let PORT = process.env.PORT || '6000'
+const io = new Server(PORT)
 
 console.log('Server Running....')
 
