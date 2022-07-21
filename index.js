@@ -18,6 +18,7 @@ console.log('Server Running....')
 io.on('connection', socket => {
     let test = server.address().address
     console.log(`${socket.id} connected.`)
+    io.emit('intro', 'hello, you are connected')
     socket.broadcast.emit('new-socket', `${socket.id} connected.`)
     socket.on("disconnect", () => {
         console.log(`${socket.id} disconnected.`)
