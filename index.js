@@ -1,11 +1,12 @@
 const cors = require('cors')
-
 const express = require('express')
 const app = express()
 app.use(cors())
 const http = require('http')
 const server = http.createServer(app)
 const {Server} = require('socket.io')
+
+let port = process.env.PORT || '6000'
 const io = new Server(server, {
     cors: {
         origin: ['https://192.168.43.93', 'http://localhost']
@@ -23,8 +24,6 @@ io.on('connection', socket => {
     })
 })
 
-
-
-server.listen(8081, () => {
-    console.log(`  is listening on port:8081`)
+server.listen(port, () => {
+    console.log(`  is listening on port:${server.address().port}`)
 })
